@@ -1,0 +1,55 @@
+public class Calculator {
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public double subtract(double a, double b) {
+        return a - b;
+    }
+
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public double divide(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            throw new IllegalArgumentException("Cannot divide by zero!");
+        }
+    }
+
+    public static void main(String[] args) {
+        double a = 10.5;
+        double b = 5.9;
+        String operation = "addition";
+
+        Calculator calculator = new Calculator();
+        double result;
+
+        switch (operation) {
+            case "addition":
+                result = calculator.add(a, b);
+                System.out.println("Result of addition: " + result);
+                break;
+            case "subtraction":
+                result = calculator.subtract(a, b);
+                System.out.println("Result of subtraction: " + result);
+                break;
+            case "multiplication":
+                result = calculator.multiply(a, b);
+                System.out.println("Result of multiplication: " + result);
+                break;
+            case "division":
+                try {
+                    result = calculator.divide(a, b);
+                    System.out.println("Result of division: " + result);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+                break;
+            default:
+                System.out.println("Invalid operation");
+        }
+    }
+}
